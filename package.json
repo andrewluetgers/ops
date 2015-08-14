@@ -1,0 +1,26 @@
+{
+  "name": "ops",
+  "version": "1.0.0",
+  "description": "state based routing",
+  "main": "./src/ops.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewluetgers/ops.git"
+  },
+  "keywords": [
+    "state",
+    "router"
+  ],
+  "author": "Andrew Luetgers <andrew.luetgers@gmail.com> (http://www.andrewluetgers.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrewluetgers/ops/issues"
+  },
+  "homepage": "https://github.com/andrewluetgers/ops",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
