@@ -2,7 +2,7 @@
 State Based Routing
 
 Given an app with state in an object this will let you call various functions based
-on what the state changes happen to be. Furthermore it allows you to describe thes
+on what the state changes happen to be. Furthermore it allows you to describe these
 conditions in a declarative manner.
 
 First you need some app with some state.
