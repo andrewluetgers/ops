@@ -54,7 +54,7 @@ var operations = {
 		}
 	},
 	
-	prefs: function() {
+	prefs: {
 		changes: ['user.prefs'],
 		operation: function(n, o, c) {
 			if (c.user.prefs.color) {
