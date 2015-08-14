@@ -29,7 +29,7 @@ Using a simple [diff function](https://github.com/andrewluetgers/diff) and lodas
 we can periodically check for changes every so often.
 
 ```javascript
-var prevState = _.cloneDeep(state);
+var prevState;
 
 setInterval(function() {
 	var changes = diff(state, prevState);
@@ -89,8 +89,6 @@ Now we just need to call the ops.run function to make it all happen.
 
 
 ```javascript
-var prevState = _.cloneDeep(state);
-
 setInterval(function() {
 	var changes = diff(state, prevState);
 	if (changes) {
