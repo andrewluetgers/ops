@@ -84,3 +84,19 @@ var operations = {
 
 Specify the changes with a path string, negation is allowed with leading !.
 Multiple may be provided, and requirements of truthyness may be made.
+
+Now we just need to call the ops.run function to make it all happen.
+
+
+```javascript
+var prevState = _.cloneDeep(state);
+
+setInterval(function() {
+	var changes = diff(state, prevState);
+	if (changes) {
+		ops.run(operations, state, prevState, changes)
+		prevState = _.cloneDeep(state);
+	}
+}, 100);
+
+```
