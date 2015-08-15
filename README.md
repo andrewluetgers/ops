@@ -98,3 +98,6 @@ setInterval(function() {
 }, 100);
 
 ```
+
+## browser useage
+the webpack build output lib/loot-ops.min.js expects lodash to be available globally as _

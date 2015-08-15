@@ -21,6 +21,10 @@
   },
   "homepage": "https://github.com/andrewluetgers/ops",
   "dependencies": {
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "lodash.every": "^3.2.3",
+    "lodash.foreach": "^3.0.3",
+    "lodash.some": "^3.2.3",
+    "loot-deep": "^1.0.0"
   }
 }

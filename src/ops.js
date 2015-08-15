@@ -1,6 +1,6 @@
-var each = require('lodash').each,
-	all = require('lodash').all,
-	deep = require('../deep/deep');
+
+var _ = require('lodash'),
+	deep = require('loot-deep');
 
 var listeners = {},
 	LKEY = "__listeners__";
@@ -38,7 +38,7 @@ module.exports = {
 	 */
 	run: function(operations, n, o, changes, eventNameSpace) {
 		eventNameSpace = eventNameSpace || "defaultNS";
-		each(operations, function(op, name) {
+		each(function(op, name) {
 			var opChanges = op.change || op.changes, // support change or changes
 				requireMatch = !op.require,
 				changeMatch = !opChanges;
@@ -56,7 +56,7 @@ module.exports = {
 
 			// filter on changes
 			if (opChanges) {
-				changeMatch = _.any(opChanges, function(change) {
+				changeMatch = any(opChanges, function(change) {
 					if (change.substr(0,1) == "!") {
 						return changes && !deep.get(changes, change.substr(1));
 					} else {
