@@ -32,7 +32,7 @@ we can periodically check for changes every so often.
 var prevState;
 
 setInterval(function() {
-	var changes = diff(state, prevState);
+	var changes = diff(prevState, state);
 	if (changes) {
 		// do something with changed state
 		prevState = _.cloneDeep(state);
@@ -90,7 +90,7 @@ Now we just need to call the ops.run function to make it all happen.
 
 ```javascript
 setInterval(function() {
-	var changes = diff(state, prevState);
+	var changes = diff(prevState, state);
 	if (changes) {
 		ops.run(operations, state, prevState, changes)
 		prevState = _.cloneDeep(state);
