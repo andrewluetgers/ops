@@ -38,14 +38,18 @@ module.exports = {
 	 */
 	run: function(operations, n, o, changes, eventNameSpace) {
 		eventNameSpace = eventNameSpace || "defaultNS";
-		each(function(op, name) {
+
+		//console.log("run", operations, n, o, changes);
+
+		_.each(operations, function(op, name) {
 			var opChanges = op.change || op.changes, // support change or changes
 				requireMatch = !op.require,
 				changeMatch = !opChanges;
 
+			//console.log(op, name, opChanges, requireMatch, changeMatch);
 			// filter on requires
 			if (op.require) {
-				requireMatch = all(op.require, function(requireVal) {
+				requireMatch = _.all(op.require, function(requireVal) {
 					if (requireVal.substr(0,1) == "!") {
 						return requireVal && !deep.get(n, requireVal.substr(1));
 					} else {
@@ -56,10 +60,13 @@ module.exports = {
 
 			// filter on changes
 			if (opChanges) {
-				changeMatch = any(opChanges, function(change) {
+				changeMatch = _.any(opChanges, function(change) {
+					console.log("---", change)
 					if (change.substr(0,1) == "!") {
+						console.log("match not", change, changes, !deep.get(changes, change.substr(1)));
 						return changes && !deep.get(changes, change.substr(1));
 					} else {
+						console.log("match", changes, change, deep.get(changes, change));
 						return changes && deep.get(changes, change);
 					}
 				});
@@ -151,13 +158,13 @@ function getMatches(listeners, changes, matches) {
 	return matches;
 }
 
-function callMatchingListeners(listeners, n, o, c, r) {
+function callMatchingListeners(listeners, n, o, c) {
 	var called = [];
 	if (c) {
 		getMatches(listeners, c).forEach(function (v) {
 			if (called.indexOf(v) < 0) {
 				called.push(v);
-				v(n, o, c, r);
+				v(n, o, c);
 			}
 		});
 	}

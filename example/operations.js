@@ -1,8 +1,9 @@
 var operations = {
 
-	alwaysExecutes: {
+	updateStateViewer: {
 		operation: function(n, o, c) {
 			console.log("the changes", c);
+			document.getElementById("stateViewer").innerHTML = JSON.stringify(state, null,"\t");
 		}
 	},
 

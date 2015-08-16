@@ -1,0 +1,12 @@
+#stateViewer {
+    float: left;
+    display: block;
+    padding: 10px;
+    border: solid 1px #b3b3b3;
+}
+
+#inputs {
+    float: left;
+    display: block;
+    padding: 10px;
+}

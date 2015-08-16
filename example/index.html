@@ -1,5 +1,17 @@
 <html>
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css"></link>
+</head>
 <body>
+
+    <pre id="stateViewer"></pre>
+    <div id="inputs">
+        <label for="favColor">
+            Favorite Color
+            <input id="favColor" type="text" value="" onkeyup="state.user.settings.favColor = this.value" />
+        </label>
+    </div>
+
     <script src="lodash.min.js"></script>
     <script src="../lib/loot-ops.min.js"></script>
     <script src="loot-diff.min.js"></script>
